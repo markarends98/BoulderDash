@@ -43,11 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Enums\Symbol.cs" />
+    <Compile Include="Enums\UserInput.cs" />
+    <Compile Include="Models\GameObject.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\GameObjects\Boulder.cs" />
+    <Compile Include="Models\GameObjects\Diamond.cs" />
+    <Compile Include="Models\GameObjects\Exit.cs" />
+    <Compile Include="Models\GameObjects\FireFly.cs" />
+    <Compile Include="Models\GameObjects\HardenedMud.cs" />
+    <Compile Include="Models\GameObjects\Mud.cs" />
+    <Compile Include="Models\GameObjects\RockFord.cs" />
+    <Compile Include="Models\GameObjects\SteelWall.cs" />
+    <Compile Include="Models\GameObjects\TNT.cs" />
+    <Compile Include="Models\GameObjects\Wall.cs" />
+    <Compile Include="Models\LevelData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\GameView.cs" />
+    <Compile Include="Views\InputView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

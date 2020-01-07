@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoulderDash.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace BoulderDash
     {
         static void Main(string[] args)
         {
+            GameController gameController = new GameController();
+            gameController.StartGame();
         }
     }
 }

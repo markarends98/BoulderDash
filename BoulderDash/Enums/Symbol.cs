@@ -15,7 +15,8 @@ namespace BoulderDash.Enums
         Wall = 'W',
         SteelWall = 'S',
         FireFly = 'F',
+        TNT = 'T',
         Exit = 'E',
-        TNT = 'T'
+        Empty = ' '
     }
 }

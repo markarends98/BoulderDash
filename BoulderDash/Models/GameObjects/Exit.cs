@@ -9,25 +9,18 @@ namespace BoulderDash.Models.GameObjects
 {
     public class Exit : GameObject
     {
-        public bool IsVisible = false;
+        public bool IsVisible { get; set; }
+        public GameObject Occupant { get; set; }
 
-        public override void Explode(Tile tile)
+        public Exit()
+        {
+            IsVisible = false;
+            Occupant = null;
+        }
+
+        public override void Explode(Tile position)
         {
             return;
-        }
-
-        public override bool Fall()
-        {
-            return false;
-        }
-
-        public override char GetSymbol()
-        {
-            if (!IsVisible)
-            {
-                return (char)Symbol.SteelWall;
-            }
-            return (char)Symbol.Exit;
         }
 
         public override bool Move(Tile destination, Direction direction)
@@ -38,6 +31,32 @@ namespace BoulderDash.Models.GameObjects
         public override bool Pickup(Tile destination, Direction direction, int score)
         {
             return false;
+        }
+
+        public override ConsoleColor GetColor()
+        {
+            if (Occupant != null)
+            {
+                return Occupant.GetColor();
+            }
+            if (!IsVisible)
+            {
+                return (ConsoleColor)SymbolColors.Empty;
+            }
+            return (ConsoleColor)SymbolColors.Exit;
+        }
+
+        public override char GetSymbol()
+        {
+            if (Occupant != null)
+            {
+                return Occupant.GetSymbol();
+            }
+            if (!IsVisible)
+            {
+                return (char)Symbol.Empty;
+            }
+            return (char)Symbol.Exit;
         }
     }
 }

@@ -56,84 +56,84 @@
   <Class Name="BoulderDash.Models.GameObjects.GameObject">
     <Position X="2.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.Wall" Collapsed="true">
-    <Position X="5.75" Y="15.25" Width="1.5" />
+    <Position X="5.5" Y="17.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.Boulder" Collapsed="true">
-    <Position X="4" Y="13.25" Width="1.5" />
+    <Position X="7" Y="14" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\Boulder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.Diamond" Collapsed="true">
-    <Position X="5.75" Y="13.25" Width="1.5" />
+    <Position X="5.5" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAACCAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\Diamond.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.Exit" Collapsed="true">
-    <Position X="7.5" Y="13.25" Width="1.5" />
+    <Position X="7.25" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAEAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAEAAAAAAAACgAAAAAAACAAAAACAAAAAA=</HashCode>
       <FileName>Models\GameObjects\Exit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.FireFly" Collapsed="true">
-    <Position X="9.25" Y="13.25" Width="1.5" />
+    <Position X="9" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\FireFly.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.HardenedMud" Collapsed="true">
-    <Position X="4" Y="14.25" Width="1.5" />
+    <Position X="3.75" Y="16.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAIAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAIAAAAAAAAAAAAgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\HardenedMud.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.Mud" Collapsed="true">
-    <Position X="5.75" Y="14.25" Width="1.5" />
+    <Position X="5.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAIAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\Mud.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.RockFord" Collapsed="true">
-    <Position X="7.5" Y="14.25" Width="1.5" />
+    <Position X="7.25" Y="16.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\RockFord.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.SteelWall" Collapsed="true">
-    <Position X="9.25" Y="14.25" Width="1.5" />
+    <Position X="9" Y="16.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\SteelWall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.TNT" Collapsed="true">
-    <Position X="4" Y="15.25" Width="1.5" />
+    <Position X="3.75" Y="17.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAACgAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObjects\TNT.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BoulderDash.Models.GameObjects.Tile">
     <Position X="5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAIAAAAAAAAAAAAAAAIAABAAgAAAACAAAAAA=</HashCode>
+      <HashCode>BAAAAAAAAIAAAAAAAAAAAAAAAIAABACgAAAACAAAAAA=</HashCode>
       <FileName>Models\GameObjects\Tile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -148,12 +148,19 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CQAAAAAAAAAAIQAAAAAAAAAAAAAAACAAAAABAAIAAAA=</HashCode>
+      <HashCode>CQAAAAAAAAAAIQgAAAAAAAAAAAAAACAAAAABAAIAAAA=</HashCode>
       <FileName>Models\Level.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="First" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="BoulderDash.Models.GameObjects.Rubble" Collapsed="true">
+    <Position X="4.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAgAAAAAAAAAAAAAAEEAAAA=</HashCode>
+      <FileName>Models\GameObjects\Rubble.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Enum Name="BoulderDash.Enums.Symbol" Collapsed="true">
     <Position X="0.75" Y="3.5" Width="1.5" />
@@ -165,7 +172,7 @@
   <Enum Name="BoulderDash.Enums.Direction" Collapsed="true">
     <Position X="0.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAJCAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Enums\Direction.cs</FileName>
     </TypeIdentifier>
   </Enum>

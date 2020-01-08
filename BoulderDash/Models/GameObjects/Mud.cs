@@ -9,31 +9,29 @@ namespace BoulderDash.Models.GameObjects
 {
     public class Mud : GameObject
     {
-        public int DigHealth => 1;
-
-        public override void Explode(Tile tile)
+        public override void Explode(Tile position)
         {
             throw new NotImplementedException();
-        }
-
-        public override bool Fall()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override char GetSymbol()
-        {
-            return (char)Symbol.Mud;
         }
 
         public override bool Move(Tile destination, Direction direction)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public override bool Pickup(Tile destination, Direction direction, int score)
         {
             return false;
+        }
+
+        public override ConsoleColor GetColor()
+        {
+            return (ConsoleColor)SymbolColors.Mud;
+        }
+
+        public override char GetSymbol()
+        {
+            return (char)Symbol.Mud;
         }
     }
 }

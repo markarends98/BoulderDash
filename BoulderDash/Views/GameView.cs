@@ -21,6 +21,7 @@ namespace BoulderDash.Views
             //render grid
             level.GetTiles().ForEach(tile => {
                 char symbol = tile.GetSymbol();
+                Console.ForegroundColor = tile.GetColor();
                 Console.Write(symbol);
 
                 if (tile.TileRight == null) 

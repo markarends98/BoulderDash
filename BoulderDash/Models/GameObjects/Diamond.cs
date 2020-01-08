@@ -7,23 +7,13 @@ using BoulderDash.Enums;
 
 namespace BoulderDash.Models.GameObjects
 {
-    public class Diamond : GameObject
+    public class Diamond : Rubble
     {
         public int value => 10;
 
-        public override void Explode(Tile tile)
+        public override void Explode(Tile position)
         {
             throw new NotImplementedException();
-        }
-
-        public override bool Fall()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override char GetSymbol()
-        {
-            return (char)Symbol.Diamond;
         }
 
         public override bool Move(Tile destination, Direction direction)
@@ -35,5 +25,15 @@ namespace BoulderDash.Models.GameObjects
         {
             throw new NotImplementedException();
         }
+        public override ConsoleColor GetColor()
+        {
+            return (ConsoleColor)SymbolColors.Diamond;
+        }
+
+        public override char GetSymbol()
+        {
+            return (char)Symbol.Diamond;
+        }
+
     }
 }

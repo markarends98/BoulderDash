@@ -9,9 +9,14 @@ namespace BoulderDash.Models.GameObjects
 {
     public class SteelWall : Wall
     {
-        public override void Explode(Tile tile)
+        public override void Explode(Tile position)
         {
             return;
+        }
+
+        public override ConsoleColor GetColor()
+        {
+            return (ConsoleColor)SymbolColors.SteelWall;
         }
 
         public override char GetSymbol()

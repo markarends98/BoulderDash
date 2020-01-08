@@ -79,6 +79,12 @@ namespace BoulderDash.Models
             return currentTile;
         }
 
+        public void LetObjectsFall()
+        {
+            this.GetTiles().FindAll(t => t.Occupant is Rubble)
+                .ForEach(t => t.Fall());
+        }
+
         public List<Tile> GetTiles()
         {
             var tiles = new List<Tile>();

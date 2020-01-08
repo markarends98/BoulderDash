@@ -33,20 +33,48 @@ namespace BoulderDash.Controllers
         private void playGameLoop()
         {
             BuildLevel();
+
+            _gameView.RenderLevel(_level);
+
             while (true)
             {
+                var render = false;
                 var keyPressed = Console.ReadKey(true).Key;
 
                 if (keyPressed == (ConsoleKey)Direction.UP)
+                {
                     _level.MovePlayer(Direction.UP);
-                if (keyPressed == (ConsoleKey)Direction.RIGHT)
-                    _level.MovePlayer(Direction.RIGHT);
-                if (keyPressed == (ConsoleKey)Direction.DOWN)
-                    _level.MovePlayer(Direction.DOWN);
-                if (keyPressed == (ConsoleKey)Direction.LEFT)
-                    _level.MovePlayer(Direction.LEFT);
+                    render = true;
+                }
 
-                _gameView.RenderLevel(_level);
+                if (keyPressed == (ConsoleKey)Direction.RIGHT)
+                {
+                    _level.MovePlayer(Direction.RIGHT);
+                    render = true;
+                }
+
+                if (keyPressed == (ConsoleKey)Direction.DOWN)
+                {
+                    _level.MovePlayer(Direction.DOWN);
+                    render = true;
+                }
+
+                if (keyPressed == (ConsoleKey)Direction.LEFT)
+                {
+                    _level.MovePlayer(Direction.LEFT);
+                    render = true;
+                }
+
+                if (keyPressed == (ConsoleKey)Direction.WAIT)
+                {
+                    render = true;
+                }
+
+                if (render)
+                {
+                    _level.LetObjectsFall();
+                    _gameView.RenderLevel(_level);
+                }
             }
         }
 

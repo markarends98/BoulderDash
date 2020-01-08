@@ -12,5 +12,6 @@ namespace BoulderDash.Enums
         LEFT = ConsoleKey.LeftArrow,
         UP = ConsoleKey.UpArrow,
         DOWN = ConsoleKey.DownArrow,
+        WAIT = ConsoleKey.Spacebar
     }
 }

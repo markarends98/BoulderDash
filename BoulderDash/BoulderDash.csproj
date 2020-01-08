@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,6 +48,7 @@
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Enums\Symbol.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\SymbolColors.cs" />
     <Compile Include="Models\GameObjects\GameObject.cs" />
     <Compile Include="Models\Level.cs" />
     <Compile Include="Models\GameObjects\Boulder.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="Models\LevelData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\GameObjects\Rubble.cs" />
     <Compile Include="Views\GameView.cs" />
     <Compile Include="Views\MenuView.cs" />
   </ItemGroup>

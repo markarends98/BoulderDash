@@ -30,7 +30,7 @@ namespace BoulderDash.Models.GameObjects
 
             if (destinationTile == null) { return false; };
 
-            // check if block has moved
+            // check if occupant has moved
             bool moved = Occupant.Move(destinationTile, direction);
             if (moved)
             {
@@ -38,6 +38,25 @@ namespace BoulderDash.Models.GameObjects
             }
 
             return moved;
+        }
+
+        public bool Fall()
+        {
+            if (Occupant is Rubble rubble)
+            {
+                bool fell = rubble.Fall(this);
+                if (fell)
+                {
+                    Occupant = null;
+                }
+                return fell;
+            }
+            return false;
+        }
+
+        internal ConsoleColor GetColor()
+        {
+            return Occupant == null ? (ConsoleColor)SymbolColors.Empty : Occupant.GetColor();
         }
 
         public char GetSymbol()

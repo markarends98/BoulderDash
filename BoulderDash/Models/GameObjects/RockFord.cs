@@ -9,19 +9,9 @@ namespace BoulderDash.Models.GameObjects
 {
     public class RockFord : GameObject
     {
-        public override void Explode(Tile tile)
+        public override void Explode(Tile position)
         {
             throw new NotImplementedException();
-        }
-
-        public override bool Fall()
-        {
-            return false;
-        }
-
-        public override char GetSymbol()
-        {
-            return (char)Symbol.Rockford;
         }
 
         public override bool Move(Tile destination, Direction direction)
@@ -37,6 +27,16 @@ namespace BoulderDash.Models.GameObjects
         public override bool Pickup(Tile destination, Direction direction, int score)
         {
             return false;
+        }
+
+        public override ConsoleColor GetColor()
+        {
+            return (ConsoleColor)SymbolColors.Rockford;
+        }
+
+        public override char GetSymbol()
+        {
+            return (char)Symbol.Rockford;
         }
     }
 }

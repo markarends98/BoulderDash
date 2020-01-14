@@ -32,8 +32,7 @@ namespace BoulderDash.Models.GameObjects
             bool supportedOnRight = false;
             if (position.TileLeft.Occupant != null)
             {
-                if (position.TileLeft.Occupant is Mud || position.TileLeft.Occupant is HardenedMud
-                    || position.TileLeft.Occupant is Boulder || position.TileLeft.Occupant is Diamond)
+                if (position.TileLeft.Occupant is Mud || position.TileLeft.Occupant is HardenedMud)
                 {
                     supportedOnLeft = true;
                 }
@@ -41,8 +40,7 @@ namespace BoulderDash.Models.GameObjects
 
             if (position.TileRight.Occupant != null)
             {
-                if (position.TileRight.Occupant is Mud || position.TileRight.Occupant is HardenedMud
-                    || position.TileRight.Occupant is Boulder || position.TileRight.Occupant is Diamond)
+                if (position.TileRight.Occupant is Mud || position.TileRight.Occupant is HardenedMud)
                 {
                     supportedOnRight = true;
                 }
@@ -50,8 +48,7 @@ namespace BoulderDash.Models.GameObjects
 
             if (position.TileAbove.Occupant != null)
             {
-                if (position.TileAbove.Occupant is Mud || position.TileAbove.Occupant is HardenedMud
-                    || position.TileAbove.Occupant is Boulder || position.TileAbove.Occupant is Diamond)
+                if (position.TileAbove.Occupant is Mud || position.TileAbove.Occupant is HardenedMud)
                 {
                     supportedOnTop = true;
                 }
@@ -61,7 +58,7 @@ namespace BoulderDash.Models.GameObjects
             return boolList.Count(b => b) >= 2;
         }
 
-        public override bool Move(Tile destination, Direction direction)
+        public override bool MoveTo(Tile position, Tile destination, Direction direction)
         {
             if (DigHealth == 0)
             {
@@ -82,14 +79,16 @@ namespace BoulderDash.Models.GameObjects
             return (char)Symbol.HardenedMud;
         }
 
-        public override bool Pickup(Tile destination, Direction direction, int score)
+        public override void Explode(Tile position)
+        {
+            position.Occupant = null;
+        }
+
+        public override bool Collide(Tile position, Tile collider, Direction direction)
         {
             return false;
         }
 
-        public override void Explode(Tile position)
-        {
-            throw new NotImplementedException();
-        }
+        public override bool Roam(Tile position) { return false; }
     }
 }

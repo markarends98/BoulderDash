@@ -8,7 +8,7 @@ namespace BoulderDash.Enums
 {
     public enum SymbolColors
     {
-        Rockford = ConsoleColor.Blue,
+        Rockford = ConsoleColor.Green,
         Mud = ConsoleColor.Gray,
         HardenedMud = ConsoleColor.DarkGray,
         Boulder = ConsoleColor.Blue,
@@ -17,7 +17,7 @@ namespace BoulderDash.Enums
         SteelWall = ConsoleColor.DarkMagenta,
         FireFly = ConsoleColor.Yellow,
         TNT = ConsoleColor.Red,
-        Exit = ConsoleColor.Green,
+        Exit = ConsoleColor.DarkGreen,
         Empty = ConsoleColor.White
     }
 }

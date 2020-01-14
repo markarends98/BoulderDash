@@ -10,7 +10,13 @@ namespace BoulderDash.Models
 {
     public class Level
     {
-        public Tile First;
+        public Tile First { get; set; }
+        public bool ExitVisible { get; private set; }
+        public Level(int chosenLevel)
+        {
+            BuildLevel(chosenLevel);
+            ExitVisible = false;
+        }
 
         public void AddTile(Tile tile, int PosX, int PosY)
         {
@@ -43,12 +49,38 @@ namespace BoulderDash.Models
             tile.TileLeft = tileLeft;
         }
 
-        public void MovePlayer(Direction direction)
+        public bool MovePlayer(Direction direction)
         {
-            this.GetTiles().Find(t => t.Occupant is RockFord).Move(direction);
+            if (IsAlive())
+            {
+                this.GetTiles().Find(t => t.Occupant is RockFord).Move(direction);
+                return true;
+            }
+            return false;
         }
 
-        public Tile GetTile(int PosX, int PosY)
+        private void checkTNT()
+        {
+            this.GetTiles().FindAll(t => t.Occupant is TNT)
+                    .ForEach(t => t.CheckExplode());
+        }
+
+        public void CheckExit()
+        {
+            if (!ExitVisible && ScoreBoard.Instance.DiamondsLeft == 0)
+            {
+                UnlockExit();
+            }
+        }
+
+        public void Update()
+        {
+            letObjectsFall();
+            letObjectsRoam();
+            checkTNT();
+        }
+
+        private Tile GetTile(int PosX, int PosY)
         {
             var currentTile = First;
 
@@ -79,10 +111,16 @@ namespace BoulderDash.Models
             return currentTile;
         }
 
-        public void LetObjectsFall()
+        private void letObjectsFall()
         {
             this.GetTiles().FindAll(t => t.Occupant is Rubble)
                 .ForEach(t => t.Fall());
+        }
+
+        private void letObjectsRoam()
+        {
+            this.GetTiles().FindAll(t => t.Occupant is FireFly)
+                .ForEach(t => t.Roam());
         }
 
         public List<Tile> GetTiles()
@@ -117,9 +155,85 @@ namespace BoulderDash.Models
             return tiles;
         }
 
+        public int GetDiamondAmount()
+        {
+            return GetTiles().Count(a => a.Occupant is Diamond);
+        }
+
         public bool IsLevelComplete()
         {
-            return GetTiles().Any(t => t.Occupant is Diamond);
+            Tile tile = GetTiles().FirstOrDefault(t => t.Occupant is RockFord);
+            if (tile != null)
+            {
+                return tile.IsExit && tile.IsExitVisible;
+            }
+            return false;
+        }
+
+        public bool IsAlive() { 
+            return GetTiles().FirstOrDefault(t => t.Occupant is RockFord) != null; 
+        }
+
+        public void UnlockExit()
+        {
+            var tile = GetTiles().Find(t => t.IsExit);
+            tile.IsExitVisible = true;
+            ExitVisible = true;
+        }
+
+        private void BuildLevel(int chosenLevel)
+        {
+            var levelData = LevelData.GetLevel(chosenLevel);
+            int maxX = LevelData.Level_width;
+            int maxY = LevelData.Level_height;
+
+            for (int y = 0; y < maxY; y++)
+            {
+                for (int x = 0; x < maxX; x++)
+                {
+                    char ch = (char)levelData.GetValue(y, x);
+
+                    Tile tile = new Tile();
+
+                    switch (ch)
+                    {
+                        case (char)Symbol.Rockford:
+                            tile.Occupant = new RockFord();
+                            break;
+                        case (char)Symbol.Mud:
+                            tile.Occupant = new Mud();
+                            break;
+                        case (char)Symbol.HardenedMud:
+                            tile.Occupant = new HardenedMud();
+                            break;
+                        case (char)Symbol.Boulder:
+                            tile.Occupant = new Boulder();
+                            break;
+                        case (char)Symbol.Diamond:
+                            tile.Occupant = new Diamond();
+                            break;
+                        case (char)Symbol.Wall:
+                            tile.Occupant = new Wall();
+                            break;
+                        case (char)Symbol.SteelWall:
+                            tile.Occupant = new SteelWall();
+                            break;
+                        case (char)Symbol.FireFly:
+                            tile.Occupant = new FireFly();
+                            break;
+                        case (char)Symbol.TNT:
+                            tile.Occupant = new TNT();
+                            break;
+                        case (char)Symbol.Exit:
+                            tile.IsExit = true;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    AddTile(tile, x, y);
+                }
+            }
         }
     }
 }

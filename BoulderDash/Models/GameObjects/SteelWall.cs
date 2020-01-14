@@ -23,5 +23,7 @@ namespace BoulderDash.Models.GameObjects
         {
             return (char)Symbol.SteelWall;
         }
+
+        public override bool Roam(Tile position) { return false; }
     }
 }

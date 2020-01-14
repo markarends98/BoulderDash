@@ -9,22 +9,24 @@ namespace BoulderDash.Models.GameObjects
 {
     public class Diamond : Rubble
     {
-        public int value => 10;
+        public int Value => 10;
 
         public override void Explode(Tile position)
         {
-            throw new NotImplementedException();
+            position.Occupant = null;
         }
 
-        public override bool Move(Tile destination, Direction direction)
+        public override bool MoveTo(Tile position, Tile destination, Direction direction)
         {
+            var movedBy = GetMovedBy(position, direction);
+            if (movedBy.Occupant is RockFord)
+            {
+                CollectDiamond(position);
+                return true;
+            }
             return false;
         }
 
-        public override bool Pickup(Tile destination, Direction direction, int score)
-        {
-            throw new NotImplementedException();
-        }
         public override ConsoleColor GetColor()
         {
             return (ConsoleColor)SymbolColors.Diamond;
@@ -35,5 +37,17 @@ namespace BoulderDash.Models.GameObjects
             return (char)Symbol.Diamond;
         }
 
+        public override bool Collide(Tile position, Tile collider, Direction direction)
+        {
+            return false;
+        }
+
+        public void CollectDiamond(Tile position)
+        {
+            position.Occupant = null;
+            ScoreBoard.Instance.CollectDiamond(Value);
+        }
+
+        public override bool Roam(Tile position) { return false; }
     }
 }

@@ -10,6 +10,7 @@ namespace BoulderDash.Views
     {
         public int ShowMenu()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
             Console.WriteLine("┌────────────────────────────────────────────────────┐");
             Console.WriteLine("| Welkom to  BoulderDash                             |");
@@ -18,7 +19,7 @@ namespace BoulderDash.Views
             Console.WriteLine("|-----------------------------|----------------------|");
             Console.WriteLine("|      R : RockFord           |   Collect all        |");
             Console.WriteLine("|      M : Mud                |   Diamonds           |");
-            Console.WriteLine("|      H : HardenedMud        |                      |");
+            Console.WriteLine("|      H : Hardened Mud       |                      |");
             Console.WriteLine("|      B : Boulder            |                      |");
             Console.WriteLine("|      D : Diamond            |                      |");
             Console.WriteLine("|      W : Wall               |                      |");
@@ -28,7 +29,7 @@ namespace BoulderDash.Views
             Console.WriteLine("|      E : Exit               |                      |");
             Console.WriteLine("└────────────────────────────────────────────────────┘");
             Console.WriteLine();
-            Console.WriteLine("Choose a level, s = stop");
+            Console.WriteLine("> Choose a level, s = stop");
 
             while (true)
             {
@@ -45,8 +46,6 @@ namespace BoulderDash.Views
                 {
                     return Int32.Parse(key.KeyChar.ToString());
                 }
-
-                ShowMenu();
             }
         }
     }

@@ -11,18 +11,14 @@ namespace BoulderDash.Models.GameObjects
     {
         public override void Explode(Tile position)
         {
-            throw new NotImplementedException();
+            position.Occupant = null;
         }
 
-        public override bool Move(Tile destination, Direction direction)
+        public override bool MoveTo(Tile position, Tile destination, Direction direction)
         {
             return false;
         }
 
-        public override bool Pickup(Tile destination, Direction direction, int score)
-        {
-            return false;
-        }
         public override ConsoleColor GetColor()
         {
             return (ConsoleColor)SymbolColors.Wall;
@@ -32,5 +28,12 @@ namespace BoulderDash.Models.GameObjects
         {
             return (char)Symbol.Wall;
         }
+
+        public override bool Collide(Tile position, Tile collider, Direction direction)
+        {
+            return false;
+        }
+
+        public override bool Roam(Tile position) { return false; }
     }
 }

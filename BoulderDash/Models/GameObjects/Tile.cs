@@ -15,6 +15,8 @@ namespace BoulderDash.Models.GameObjects
         public Tile TileLeft;
 
         public GameObject Occupant;
+        public bool IsExit;
+        public bool IsExitVisible;
 
         public bool Move(Direction direction)
         {
@@ -31,13 +33,33 @@ namespace BoulderDash.Models.GameObjects
             if (destinationTile == null) { return false; };
 
             // check if occupant has moved
-            bool moved = Occupant.Move(destinationTile, direction);
+            bool moved = Occupant.MoveTo(this, destinationTile, direction);
             if (moved)
             {
                 Occupant = null;
             }
 
             return moved;
+        }
+
+        public void Explode()
+        {
+            if (Occupant != null)
+            {
+                Occupant.Explode(this);
+            }
+        }
+
+        // check if collider can take over postion
+        public bool Collide(Tile collider, Direction direction)
+        {
+            // if tile is empty
+            if (Occupant == null) { return true; }
+
+            if (collider == null) { return false; };
+
+            // check if occupant has collided
+           return Occupant.Collide(this, collider, direction);
         }
 
         public bool Fall()
@@ -54,13 +76,44 @@ namespace BoulderDash.Models.GameObjects
             return false;
         }
 
+        public void CheckExplode()
+        {
+            if (Occupant is TNT tnt)
+            {
+                if (tnt.ExplodesCounter == ScoreBoard.Instance.MovesMade)
+                {
+                    Explode();
+                }
+            }
+        }
+
+        public void Roam()
+        {
+            if (Occupant is FireFly)
+            {
+                bool moved = Occupant.Roam(this);
+                if (moved)
+                {
+                    Occupant = null;
+                }
+            }
+        }
+
         internal ConsoleColor GetColor()
         {
+            if (IsExit && IsExitVisible && Occupant == null)
+            {
+                return (ConsoleColor)SymbolColors.Exit;
+            }
             return Occupant == null ? (ConsoleColor)SymbolColors.Empty : Occupant.GetColor();
         }
 
         public char GetSymbol()
         {
+            if (IsExit && IsExitVisible && Occupant == null)
+            {
+                return (char)Symbol.Exit;
+            }
             return Occupant == null ? (char)Symbol.Empty : Occupant.GetSymbol();
         }
     }

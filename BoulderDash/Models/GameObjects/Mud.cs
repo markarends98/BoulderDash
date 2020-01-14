@@ -11,16 +11,16 @@ namespace BoulderDash.Models.GameObjects
     {
         public override void Explode(Tile position)
         {
-            throw new NotImplementedException();
+            position.Occupant = null;
         }
 
-        public override bool Move(Tile destination, Direction direction)
+        public override bool MoveTo(Tile position, Tile destination, Direction direction)
         {
-            return true;
-        }
-
-        public override bool Pickup(Tile destination, Direction direction, int score)
-        {
+            var movedBy = GetMovedBy(position, direction);
+            if (movedBy.Occupant is RockFord)
+            {
+                return true;
+            }
             return false;
         }
 
@@ -33,5 +33,12 @@ namespace BoulderDash.Models.GameObjects
         {
             return (char)Symbol.Mud;
         }
+
+        public override bool Collide(Tile position, Tile collider, Direction direction)
+        {
+            return false;
+        }
+
+        public override bool Roam(Tile position) { return false; }
     }
 }
